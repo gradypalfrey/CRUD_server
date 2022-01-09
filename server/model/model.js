@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { intersects } = require('semver')
 
 var schema = new mongoose.Schema({
     name: {
@@ -12,6 +11,6 @@ var schema = new mongoose.Schema({
     }
 })
 
-const Userdb = mongoose.model('userdb', schema)
+const User = mongoose.model('userdb', schema)
 
-module.exports = Userdb
+module.exports = User

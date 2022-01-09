@@ -11,26 +11,23 @@
         <script src="/js/index.js"></script>
     </head>
     <body>
-        <div>
-            <a href="/">
-                <h2>User Management System</h2>
-            </a>
-        </div>
-
         <main>
             <div>
-                <a href="/add-user">
-                    <h2>Add user</h2>
+                <a href="/">
+                    <h1>Inventory</h1>
                 </a>
             </div>
             <div>
                 <input value="Download CSV" type="button" id="download_csv"></a>
             </div>
+            <div>
+                <input type="button" onclick="location.href='/add-user'" value="Add User"/></td>
+            </div>
             <form action="/" method="POST">
                 <table>
                     <thead>
                         <tr>
-                            <th>Num</th>
+                            <th>Row</th>
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>Actions</th>

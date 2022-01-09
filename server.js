@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const bodyparser = require("body-parser")
 const path = require("path")
@@ -17,6 +18,6 @@ app.use("/js", express.static(path.resolve(__dirname, "assets/js")))
 
 app.use('/', require('./server/routes/router'))
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Running")
 })

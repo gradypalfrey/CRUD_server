@@ -1,23 +1,22 @@
-var Userdb = require('../model/model')
+var User = require('../model/model')
 
 exports.create = (req, res) => {
     if (!req.body) {
-        res.status(400).send({message: "Content can not be empty!"})
+        res.status(400).send({message: "Request cannot be empty"})
         return;
     }
-    const user = new Userdb({
+    const user = new User({
         name: req.body.name,
         quantity: req.body.quantity
     })
     user
         .save(user)
         .then(data => {
-            // res.send(data)
             res.redirect('/add-user')
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occured during create operation."
+                message: err.message || "Creation Error"
             })
         })
 }
@@ -25,24 +24,24 @@ exports.create = (req, res) => {
 exports.find = (req, res) => {
     if (req.query.id) {
         const id = req.query.id
-        Userdb.findById(id)
+        User.findById(id)
             .then(data => {
                 if (!data) {
-                    res.status(404).send({message:"Not found"})
+                    res.status(404).send({message:"Error Not found"})
                 } else {
                     res.send(data)
                 }
             })
             .catch(err => {
-                res.status(500).send({message: "Error retrieving"})
+                res.status(500).send({message: "Internal Error"})
             })
     } else {
-        Userdb.find()
+        User.find()
         .then(user => {
             res.send(user)
         })
         .catch(err => {
-            res.status(500).send({message: err.message || "Error occured while retreiving information."})
+            res.status(500).send({message: err.message || "Internal Error"})
         })
     }
 }
@@ -50,30 +49,28 @@ exports.find = (req, res) => {
 exports.update = (req, res) => {
     if (!req.body) {
         return res.status(400)
-        .send({message: "Data to update cannot be empty"})
+        .send({message: "Request cannot be empty"})
     }
-    Userdb.findByIdAndUpdate(req.params.id, req.body)
+    User.findByIdAndUpdate(req.params.id, req.body)
         .then(data => {
             if (!data) {
-                res.status(404).send({message: 'Cannot update'})
+                res.status(404).send({message: 'Not found'})
             } else {
                 res.send(data)
             }
         })
         .catch(err => {
-            res.status(500).send({message: 'Error updating'})
+            res.status(500).send({message: 'Internal Error'})
         })
 }
 
 exports.delete = (req, res) => {
-    Userdb.findByIdAndDelete(req.params.id)
+    User.findByIdAndDelete(req.params.id)
         .then(data => {
             if (!data) {
-                res.status(404).send({message: 'Cannot delete'})
+                res.status(404).send({message: 'Not found'})
             } else {
-                res.send({
-                    message: "User deleted"
-                })
+                res.send({message: "User deleted"})
             }
         })
         .catch(err => {
