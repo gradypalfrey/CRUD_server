@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Shopify Application</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/index.js"></script>
+    </head>
+    <body>
+        <div>
+            <a href="/">
+                <h2>User Management System</h2>
+            </a>
+        </div>
+
+        <main>
+            <div>
+                <div>
+                    <a href="/">All Users</a>
+                </div>
+            </div>
+            <div>
+                <h2>New User</h2>
+                <span>Use the below form to create a new account</span>
+            </div>
+            <form action="api/users" method="POST" id="add_user">
+                <div>
+                    <div>
+                        <label>Name</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="name" value="" placeholder="Jeff" required>
+                    </div>
+                    <div>
+                        <label>Quantity</label>
+                        <input type="text" name="quantity" value="" placeholder="23" required>
+                    </div>
+                    <div>
+                        <label>Image</label>
+                        <input type="file" name="image" value="" placeholder="23">
+                    </div>
+                    <div>
+                        <button type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    <script src="/js/index.js"></script>
+    </body>
+</html>
