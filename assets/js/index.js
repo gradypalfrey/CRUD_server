@@ -34,7 +34,7 @@ $("#download_csv").click(async function (event) {
   obj = await fetch("http://localhost:3000/api/users", {}).then((res) =>
     res.json()
   );
-  var result = "Number, Name, Quantity";
+  var result = "Number, Name, Quantity\n";
   for (var i = 0; i < obj.length; i++) {
     result =
       result + (i + 1) + "," + (obj[i].name + "," + obj[i].quantity + "\n");
