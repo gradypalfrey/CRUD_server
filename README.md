@@ -5,8 +5,8 @@ This is a web application made for a CRUD demonstration using Node.js, Express.j
 
 To run the application locally, run the following commands.
 
-npm i
+> npm i
 
-npm start
+> npm start
 
 The application should now be running on port 3000.
