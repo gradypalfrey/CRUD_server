@@ -12,12 +12,11 @@ connectDB()
 app.use(bodyparser.urlencoded({ extended: true}))
 
 app.set("view engine", "ejs")
-// app.set("views", path.resolve(__dirname, "views/ejs"))
 
 app.use("/js", express.static(path.resolve(__dirname, "assets/js")))
 
 app.use('/', require('./server/routes/router'))
 
 app.listen(process.env.PORT, () => {
-    console.log("Running")
+    console.log(`Running on port ${process.env.PORT}.`)
 })
