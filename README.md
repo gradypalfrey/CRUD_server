@@ -1,4 +1,4 @@
-# shopify_application
+# application
 
 
 This is a web application made for a CRUD demonstration using Node.js, Express.js, EJS and MongoDB.
